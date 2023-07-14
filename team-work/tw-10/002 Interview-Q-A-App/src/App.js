@@ -1,9 +1,13 @@
+import Header from "./componets/Header";
+import InterviewOuestions from "./componets/InterviewOuestions";
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello React</h1>
+      <Header />
+      <InterviewOuestions />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

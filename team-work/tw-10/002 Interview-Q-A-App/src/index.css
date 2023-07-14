@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  -webkit-animation: gradient 20s ease infinite;
+  animation: gradient 20s ease infinite;
+  background: linear-gradient(
+    -45deg,
+    #003547,
+    #c2bb00,
+    #e1523d,
+    #ed8b16,
+    #005e54
+  );
+  background-size: 400% 400%;
+  height: 100vh;
+}
+h1 {
+  color: azure;
+  font-family: Amatic SC, cursive;
+  font-size: 3rem;
+  margin: 1rem;
+}
+.card {
+  background-image: none;
+  width: 80%;
+}
