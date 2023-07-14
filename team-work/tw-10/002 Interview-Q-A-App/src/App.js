@@ -1,5 +1,6 @@
 import Header from "./componets/Header";
 import InterviewOuestions from "./componets/InterviewOuestions";
+import "./index.css";
 
 function App() {
   return (

@@ -24,6 +24,20 @@ h1 {
   margin: 1rem;
 }
 .card {
-  background-image: none;
-  width: 80%;
+  width: 60%;
+  background-color: hsla(0, 34%, 55%, 0) !important ;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75);
+  color: #f0f8ff !important;
+}
+.header {
+  display: block;
+  font-size: 0.83em;
+  margin-block-start: 1.67em;
+  margin-block-end: 1.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: #da442d !important;
+  font-size: 1.2rem;
 }

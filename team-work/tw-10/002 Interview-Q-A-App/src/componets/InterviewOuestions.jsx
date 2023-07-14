@@ -13,14 +13,14 @@ const InterviewOuestions = () => {
     <>
       {data.map((item) => {
         return (
-          <Card className="card m-auto mt-5" key={item.id}>
-            <Card.Header className="bg-secondary d-flex justify-content-between ">
+          <Card className="m-auto mt-5 card" key={item.id}>
+            <Card.Header className="d-flex justify-content-between header">
               {item.question}
               <div onClick={handleIcon} className="">
                 {icon ? arrowdown : arrowup}
               </div>
             </Card.Header>
-            <Card.Body className="bg-danger-subtle">
+            <Card.Body>
               <Card.Text>{item.answer}</Card.Text>
             </Card.Body>
           </Card>
