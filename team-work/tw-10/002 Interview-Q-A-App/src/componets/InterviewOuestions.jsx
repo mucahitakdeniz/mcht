@@ -15,8 +15,8 @@ const InterviewQuestions = () => {
         console.log(item);
 
         const toggleVisibility = () => {
-          setUpdatedData((prevData) =>
-            prevData.map((obj) =>
+          setUpdatedData((e) =>
+            e.map((obj) =>
               obj.id === item.id ? { ...obj, visible: !obj.visible } : obj
             )
           );
