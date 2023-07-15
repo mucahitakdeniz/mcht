@@ -26,8 +26,8 @@ const InterviewQuestions = () => {
           <Card className="m-auto mt-5 card" key={item.id}>
             <Card.Header className="d-flex justify-content-between header">
               {item.id}.{item.question}
+              but
               <div onClick={toggleVisibility}>
-                {item.visible ? arrowup : arrowdown}
               </div>
             </Card.Header>
             <Card.Body>
