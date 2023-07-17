@@ -9,13 +9,13 @@ const TodoList = () => {
   const [todoArray, setTodoArray] = useState([]);
 
   const handleChange = (e) => {
-    setInput(e.target.value);
+    setInput(e.target.value.trim());
   };
 
   const handleClick = (e) => {
     {
       const newTodo = {
-        id: uuid4,
+        id: uuid4(),
         text: input,
       };
       setTodoArray([...todoArray, newTodo]);
