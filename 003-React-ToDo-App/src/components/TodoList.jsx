@@ -2,29 +2,29 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import { v4 as uuid4 } from "uuid";
 
 const TodoList = () => {
   const [input, setInput] = useState("");
   const [todoArray, setTodoArray] = useState([]);
 
-  const arraylist = () => {
-    const x = [...todoArray];
-    console.log(x);
-  };
-
   const handleChange = (e) => {
     setInput(e.target.value);
-    console.log(input);
   };
 
   const handleClick = (e) => {
     {
-      input && setTodoArray([...todoArray, input]);
+      const newTodo = {
+        id: uuid4,
+        text: input,
+      };
+      setTodoArray([...todoArray, newTodo]);
     }
     setInput("");
   };
-
-  const myTimeout = setTimeout(arraylist, 100);
+  const handleDelete = (id) => {
+    setTodoArray(todoArray.filter((item) => item.id !== id));
+  };
 
   return (
     <>
@@ -44,15 +44,21 @@ const TodoList = () => {
         </Button>
       </InputGroup>
       <h2 className="text-center fs-1">Todos</h2>
-
-      {todoArray.map((item, i) => (
-        <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end d-flex justify-content-between">
-          <p>
-            {i + 1}.{item}{" "}
-          </p>
-          <a>🗑</a>
-        </div>
-      ))}
+      <div className="container list  ">
+        {todoArray.map((item, i) => (
+          <div
+            class="p-3 bg-info bg-opacity-10 border border-info  rounded-end d-flex justify-content-between w-75 listElement"
+            key={item.id}
+          >
+            <p>
+              {i + 1}.{item.text}
+            </p>
+            <button className=" border" onClick={() => handleDelete(item.id)}>
+              🗑
+            </button>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
