@@ -1,25 +1,34 @@
-import { useEffect, useState } from "react";
-import AddTutorial from "../components/AddTutorial";
-import TutorialList from "../components/TutorialList";
-import axios from "axios";
+import { useEffect, useState } from "react"
+import AddTutorial from "../components/AddTutorial"
+import TutorialList from "../components/TutorialList"
+import axios from "axios"
 
 const Home = () => {
-  const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/";
-  const [tutorials, setTutorials] = useState("");
+  const [tutorials, setTutorials] = useState([])
+  const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
+
   const getTutorials = async () => {
-    const data = await axios(BASE_URL);
-    setTutorials(data.data)
-    console.log(data);
-  };
-  useEffect(()=>{
+    try {
+      const { data } = await axios(BASE_URL)
+      setTutorials(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  console.log(tutorials)
+
+  //? Mount asamasinda api'ye istek atiyoruz
+  useEffect(() => {
     getTutorials()
-  },[])
+  }, [])
+
   return (
     <>
       <AddTutorial />
-      <TutorialList />
+      <TutorialList tutorials={tutorials} />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
