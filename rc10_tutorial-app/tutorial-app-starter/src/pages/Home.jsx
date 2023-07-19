@@ -10,6 +10,7 @@ const Home = () => {
     try {
       const { data } = await axios(Base_Url);
       console.log(data);
+      setTutorials(data);
     } catch (error) {
       console.log(error);
     }
@@ -18,11 +19,14 @@ const Home = () => {
   useEffect(() => {
     getTutorials();
   }, []);
-
   return (
     <>
-      <AddTutorial />
-      <TutorialList tutorials={tutorials} />
+      <AddTutorial tutorials={tutorials} setTutorials={setTutorials} />
+      <TutorialList
+        tutorials={tutorials}
+        setTutorials={setTutorials}
+        Base_Url={Base_Url}
+      />
     </>
   );
 };
