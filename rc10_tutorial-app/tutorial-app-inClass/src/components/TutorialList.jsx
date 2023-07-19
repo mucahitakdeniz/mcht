@@ -1,70 +1,104 @@
-import { useState } from "react";
+import { FaEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
+import EditTutorial from "./EditTutorial";
+import { useState } from "react";
 
-const AddTutorial = ({ getTutorials }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+const TutorialList = ({ tutorials, getTutorials }) => {
+  const [editItem, setEditItem] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newTutor = { title: title, description: description };
-    console.log(newTutor);
-    postTutorial(newTutor);
-    setTitle("");
-    setDescription("");
-  };
+  console.log(editItem);
+  // const tutorials = [
+  //   {
+  //     id: 1,
+  //     title: "JS",
+  //     description: "JS is a programming language",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "React",
+  //     description: "JS library for UI design",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "VUE",
+  //     description: "JS library for UI design",
+  //   },
+  // ]
+  const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials";
 
-  const postTutorial = async (newTutor) => {
-    const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+  const handleDelete = async (id) => {
     try {
-      const res = await axios.post(BASE_URL, newTutor);
-      console.log(res);
+      await axios.delete(`${BASE_URL}/${id}/`);
     } catch (error) {
       console.log(error);
     }
+    getTutorials();
+  };
 
-    //? Tum tutorial'lari iste ve state'i guncelle
+  const editTutor = async (tutor) => {
+    try {
+      await axios.put(`${BASE_URL}/${tutor.id}/`, tutor);
+    } catch (error) {
+      console.log(error);
+    }
     getTutorials();
   };
 
   return (
-    <div className="container text-center mt-4">
-      <h1 className="display-6 text-danger">Add Your Tutorial</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="title" className="form-label">
-            Title
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="title"
-            placeholder="Enter your title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="desc" className="form-label">
-            Description
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="desc"
-            placeholder="Enter your Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-danger mb-4">
-          Submit
-        </button>
-      </form>
+    <div className="container mt-4">
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col" className="text-center">
+              Edit
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {tutorials?.map((item) => {
+            const { id, title, description } = item;
+            return (
+              <tr key={id}>
+                <th>{id}</th>
+                <td>{title}</td>
+                <td>{description}</td>
+                <td className="text-center text-nowrap">
+                  <FaEdit
+                    size={20}
+                    type="button"
+                    className="me-2 text-warning"
+                    data-bs-toggle="modal"
+                    data-bs-target="#open-modal"
+                    // onClick={() =>
+                    //   editTutor({
+                    //     id: 1934,
+                    //     title: "REACT",
+                    //     description: "JS Library",
+                    //   })
+                    // }
+
+                    onClick={() => setEditItem(item)}
+                  />
+                  <AiFillDelete
+                    size={22}
+                    type="button"
+                    className="text-danger "
+                    onClick={() => handleDelete(id)}
+                  />
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+
+      <EditTutorial editItem={editItem} />
     </div>
   );
 };
 
-export default AddTutorial;
+export default TutorialList;
