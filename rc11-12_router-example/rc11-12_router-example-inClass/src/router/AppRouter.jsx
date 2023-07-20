@@ -16,7 +16,9 @@ import Login from "../pages/Login";
 import { useState } from "react";
 
 const AppRouter = () => {
-  const [user, setUser] = useState(sessionStorage.getItem("user,json.stringify") || false);
+  const [user, setUser] = useState(
+    JSON.parse(sessionStorage.getItem("user")) || false
+  );
   
   return (
     <div>
