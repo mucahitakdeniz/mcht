@@ -1,25 +1,47 @@
 import axios from "axios";
+import { useState, useEffect } from "react";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
+
 const ProductCard = () => {
-  const postProducts = async (products) => {
-    const Base_Url = "https://fakestoreapi.com/products/";
+  const [prod, setProd] = useState([]);
+
+  useEffect(() => {
+    postProducts();
+  }, []);
+
+  const postProducts = async () => {
+    const Base_Url = "https://fakestoreapi.com/products";
     try {
-      const res = await axios(Base_Url);
-      console.log(res);
+      const { data } = await axios.get(Base_Url);
+      setProd(data);
     } catch (error) {
       console.log(error);
     }
   };
-  return <>
-  res?.map((e)=>{
-    return (
-        <>
-        <h1>{e.title}</h1>
-        <img src={e.image} alt="" />
-        </>
-    )
-  })
-  </>
 
+  return (
+    <>
+      {prod.map((item) => {
+        <Card key={item.id} style={{ width: "18rem" }}>
+          <Card.Img src="{item.image}" />
+          <Card.Body>
+            <Card.Title>{item.title}</Card.Title>
+            <Card.Text>{item.description}</Card.Text>
+          </Card.Body>
+          <ListGroup className="list-group-flush">
+            <ListGroup.Item>Cras justo odio</ListGroup.Item>
+            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+          </ListGroup>
+          <Card.Body>
+            <Card.Link href="#">Card Link</Card.Link>
+            <Card.Link href="#">Another Link</Card.Link>
+          </Card.Body>
+        </Card>;
+      })}
+    </>
+  );
 };
 
 export default ProductCard;
