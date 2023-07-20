@@ -11,7 +11,6 @@ import PersonDetail from "../pages/PersonDetail";
 export const AppRouter = () => {
   return (
     <div>
-      {" "}
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
