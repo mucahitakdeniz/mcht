@@ -3,17 +3,22 @@ import { useNavigate } from "react-router-dom";
 
 const People = () => {
   const [people, setPeople] = useState([]);
+
   let navigate = useNavigate();
 
   const getPeople = () => {
     fetch("https://reqres.in/api/users")
       .then((res) => res.json())
       .then((data) => setPeople(data.data))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+     
+        console.log(err)
+      });
   };
   useEffect(() => {
     getPeople();
   }, []);
+  
 
   return (
     <div className="container text-center mt-4">
