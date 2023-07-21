@@ -22,9 +22,9 @@ const ProductCard = () => {
 
   return (
     <>
-      {prod.map((item) => (
-        <div className="row container">
-          <div className="col-md-12 col-l-4">
+      <div className="row m-auto">
+        {prod.map((item) => (
+          <div className="col-xs-12 col-sm-6  col-md-4 col-lg-3 text-center">
             <Card key={item.id} style={{ width: "18rem" }}>
               <Card.Img src={item.image} />
               <Card.Body>
@@ -42,8 +42,8 @@ const ProductCard = () => {
               </Card.Body>
             </Card>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </>
   );
 };
