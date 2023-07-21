@@ -2,17 +2,35 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = ({ setUser }) => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  let navigate = useNavigate();
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUser({ email, password });
-    sessionStorage.setItem("user", JSON.stringify({ email, password }));
+    setUser({ username, password });
+    sessionStorage.setItem("user", JSON.stringify({ username, password }));
     navigate("/");
-    console.log(email, password);
+    console.log(username, password);
   };
+
+  const getUsers = () => {
+    fetch("https://64ba3cb05e0670a501d5d865.mockapi.io/user")
+      .then((res) => res.json())
+      .then((data) => {
+        islem(data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const islem = (gelendeger) => {
+    gelendeger.map((item)=>
+   { if (username===item.username &&password===item.password )})
+
+    
+  };
+  getUsers();
   return (
     <div className="container mt-4">
       <form onSubmit={handleSubmit}>
@@ -21,11 +39,12 @@ const Login = ({ setUser }) => {
             Email address
           </label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
           />
         </div>
         <div className="mb-3">
