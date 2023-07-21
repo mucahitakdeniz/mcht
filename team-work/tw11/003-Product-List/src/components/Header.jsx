@@ -13,7 +13,6 @@ const Header = ({ setFilt }) => {
     } catch (error) {
       console.log(error);
     }
-    console.log(categorys);
   };
   useEffect(() => {
     postCategories();
