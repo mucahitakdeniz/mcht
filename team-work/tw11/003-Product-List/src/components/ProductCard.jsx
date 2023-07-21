@@ -19,35 +19,49 @@ const ProductCard = ({ filt }) => {
       console.log(error);
     }
   };
+  const price = (e) => {
+    let x = +e.rate;
+    let y = +e.count;
+    return y + (y / 100) * x;
+  };
 
   return (
     <>
       <div className="row m-auto">
         {prod
           .filter((e) => (filt ? e.category === filt : e))
-          .map((item) => (
-            <div
-              key={item.id}
-              className="col-xs-12 col-sm-6  col-md-4 col-lg-3 text-center"
-            >
-              <Card key={item.id} className="cards" style={{ width: "18rem" }}>
-                <Card.Img src={item.image} />
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Card.Text>{item.description}</Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                  <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                  <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                </ListGroup>
-                <Card.Body>
-                  <Card.Link href="#">Card Link</Card.Link>
-                  <Card.Link href="#">Another Link</Card.Link>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
+          .map((item) => {
+            let pPrice = price(item.rating);
+            console.log(pPrice);
+            return (
+              <div
+                key={item.id}  
+                className="col-xs-12 col-sm-6  col-md-4 col-lg-3 text-center"
+              >
+                <Card style={{ width: "18rem" }}></Card>
+                <Card
+                  key={item.id}
+                  className="cards"
+                  style={{ width: "18rem" }}
+                >
+                  <Card.Img src={item.image} />
+                  <Card.Body>
+                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Text> {pPrice} $</Card.Text>
+                  </Card.Body>
+                  <ListGroup className="list-group-flush">
+                    <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                  </ListGroup>
+                  <Card.Body>
+                    <Card.Link href="#">Card Link</Card.Link>
+                    <Card.Link href="#">Another Link</Card.Link>
+                  </Card.Body>
+                </Card>
+              </div>
+            );
+          })}
       </div>
     </>
   );
