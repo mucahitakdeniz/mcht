@@ -1,14 +1,16 @@
-import { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { useState } from "react"
+import Container from "react-bootstrap/Container"
+import Button from "react-bootstrap/Button"
+import Form from "react-bootstrap/Form"
 
 const Login = () => {
-  const [user, setUser] = useState({ email: "", password: "" });
+  //! Local State
+
+  const [user, setUser] = useState({ email: "", password: "" })
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+    e.preventDefault()
+  }
 
   return (
     <Container>
@@ -42,7 +44,7 @@ const Login = () => {
         </Container>
       </Form>
     </Container>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
