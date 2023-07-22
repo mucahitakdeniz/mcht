@@ -3,7 +3,7 @@ import UseStateExample from "./UseStateExample";
 function App() {
   return (
     <div>
-      <UseStateExample />
+      <UseReducerExample />
     </div>
   );
 }
