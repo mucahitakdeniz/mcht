@@ -1,12 +1,13 @@
 import Card from "./components/card/Card";
-import "./index.css"
+import "./index.css";
+import AppRouter from "./router/AppRouter";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello React</h1>
+    <>
+      <AppRouter />
       <Card />
-    </div>
+    </>
   );
 }
 
