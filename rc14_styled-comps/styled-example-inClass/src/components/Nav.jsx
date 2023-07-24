@@ -1,6 +1,18 @@
+import Button from "./styled/Button"
+import NavStyled from "./styled/NavStyled"
+
 const Nav = () => {
   return (
-    <div>Nav</div>
+    <NavStyled>
+      <div>
+        <img src="./images/logo.png" width="250px" alt="logo" />
+      </div>
+
+      <div>
+        <Button>Apply Courses</Button>
+        <Button primary>Talk To Adviser</Button>
+      </div>
+    </NavStyled>
   )
 }
 

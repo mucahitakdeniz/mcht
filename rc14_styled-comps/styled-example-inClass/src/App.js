@@ -1,7 +1,11 @@
+import Header from "./components/Header";
+import { Globalstyled } from "./components/styled/Globalstyled";
+
 const App = () => {
   return (
     <>
-      <h1>APP</h1>
+      <Globalstyled />
+      <Header/>
     </>
   );
 };
