@@ -1,5 +1,5 @@
-import { Button, DarkButton } from "./components/Buton.styled"
-import Flex from "./components/Flex"
+import { Button, DarkButton } from "./components/Buton.styled";
+import Flex from "./components/Flex";
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
         <h1>PROPS</h1>
       </Flex>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
