@@ -9,6 +9,7 @@ const Card = ({ input, type }) => {
         `https://www.googleapis.com/books/v1/volumes?q=${input}&printType=${type}&key=AIzaSyCvTpnIzXtadNKxNDhwpspdEa8l1rcidt4`
       );
       setCards(data.items);
+      console.log(cards);
     } catch (error) {
       console.log(error);
     }
@@ -19,12 +20,26 @@ const Card = ({ input, type }) => {
     getBooks();
     console.log(cards);
   }, [input, type]);
+  useEffect(() => {
+    getBooks();
+    console.log(cards);
+  }, [type]);
+  const img =
   console.log(cards);
 
   return (
     <div className="card-container books">
       {cards.map((book) => (
         <div className="card" key={book.id}>
+          <div>
+            <h2 className="text-danger">{book.volumeInfo.title}</h2>
+<img src=".../assets/" alt="" />
+            <h3>
+              Author:
+              <span className="text-danger">{book?.volumeInfo?.authors}</span>
+            </h3>
+          </div>
+
           <img
             src={
               book.volumeInfo.imageLinks?.thumbnail ||
@@ -32,8 +47,8 @@ const Card = ({ input, type }) => {
             }
             alt={book.volumeInfo.title}
           />
-          <h2>{book.volumeInfo.title}</h2>
-          <p>Country: {book.volumeInfo.country || "N/A"}</p>
+                    <div> {img || <p>{book?.searchInfo?.textSnippet}}</p>} </div>
+
         </div>
       ))}
     </div>
