@@ -29,3 +29,15 @@
   max-height: 200px;
   object-fit: cover;
 }
+.navbar {
+  background-color: rgb(211, 205, 201);
+  color: black;
+  font-size: 1.5rem;
+  display: flex;
+  margin: 2rem;
+  margin: auto;
+  width: %50rem;
+  height: 10rem;
+ padding: 1rem;
+
+}
