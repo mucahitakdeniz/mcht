@@ -1,12 +1,11 @@
-import Card from "./components/card/Card";
 import "./index.css";
+import Home from "./pages/home/Home";
 import AppRouter from "./router/AppRouter";
 
 function App() {
   return (
     <>
-      <AppRouter />
-      <Card />
+      <Home />
     </>
   );
 }
