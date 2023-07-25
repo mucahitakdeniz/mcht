@@ -22,7 +22,7 @@ const Card = ({ input, type }) => {
   console.log(cards);
 
   return (
-    <div className="card-container">
+    <div className="card-container books">
       {cards.map((book) => (
         <div className="card" key={book.id}>
           <img

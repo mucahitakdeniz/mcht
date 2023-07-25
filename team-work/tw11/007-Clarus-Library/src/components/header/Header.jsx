@@ -1,14 +1,21 @@
 import { useState } from "react";
 
 const Header = ({ setInput, setType, type }) => {
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [selectedOption, setSelectedOption] = useState("all");
+
+  // const handleOptionChange = (option) => {
+  //   setSelectedOption(option);
+  // };
+
   const option = ["all", "books", "magazines"];
   const [change, setChange] = useState("");
   const [t, setT] = useState(type);
 
-  const handleDropDown = (option) => {
-    setT(option);
-    setType(option); // Türü ana bileşende değiştirmek için setType kullanın
-  };
+  // const handleDropDown = (option) => {
+  //   setT(option);
+  //   setType(option); // Türü ana bileşende değiştirmek için setType kullanın
+  // };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -29,38 +36,56 @@ const Header = ({ setInput, setType, type }) => {
           value={change}
           onChange={(e) => setChange(e.target.value)}
         />
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#">
+                Action
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">
+                Another action
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">
+                Something else here
+              </a>
+            </li>
+          </ul>
+        </div>
 
-        <ul style={{ listStyleType: "none" }}>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              onClick={(e) => e.preventDefault()}
-            >
-              {type}
-            </a>
-            <ul class="dropdown-menu">
-              {option.map((option, i) => {
-                return (
-                  <li key={i}>
-                    <a
-                      onClick={() => handleDropDown(option)}
-                      class="dropdown-item"
-                      href="#"
-                    >
-                      {option}
-                    </a>
-                  </li>
-                );
-              })}
+        {/* <div className="dropdown">
+          <button
+            className="dropdown-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {selectedOption}
+          </button>
+          {isOpen && (
+            <ul className="dropdown-menu">
+              {option.map((option, index) => (
+                <li key={index}>
+                  <button >
+                    {option}
+                  </button>
+                </li>
+              ))}
             </ul>
-          </li>
-        </ul>
+          )}
+        </div> */}
+
         <button
-          onClick={() => setInput(change)}
+          onClick={handleSearch}
           class="btn btn-outline-success ms-3 "
           type="submit"
         >
