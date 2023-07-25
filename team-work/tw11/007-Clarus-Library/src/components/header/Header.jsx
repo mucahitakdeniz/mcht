@@ -4,18 +4,23 @@ const Header = ({ setInput, setType, type }) => {
   const option = ["all", "books", "magazines"];
   const [change, setChange] = useState("");
   const [t, setT] = useState(type);
+
   const handleDropDown = (option) => {
     setT(option);
+    setType(option); // Türü ana bileşende değiştirmek için setType kullanın
   };
+
   const handleSearch = (e) => {
     e.preventDefault();
     setInput(change);
-    setType(t);
+    setType(t); // Türü değiştirmek için t state'ini kullanın
+    setChange("");
   };
+
   return (
     <div className="container text-center">
       <h1 className="text-center">BOOKS OR MAGAZİNES</h1>
-      <form onSubmit={handleSearch} class="d-flex " role="search">
+      <form class="d-flex " role="search">
         <input
           class="form-control me-2 w-50"
           type="search"
@@ -33,6 +38,7 @@ const Header = ({ setInput, setType, type }) => {
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
+              onClick={(e) => e.preventDefault()}
             >
               {type}
             </a>
@@ -53,7 +59,11 @@ const Header = ({ setInput, setType, type }) => {
             </ul>
           </li>
         </ul>
-        <button class="btn btn-outline-success ms-3 " type="submit">
+        <button
+          onClick={() => setInput(change)}
+          class="btn btn-outline-success ms-3 "
+          type="submit"
+        >
           Search
         </button>
       </form>

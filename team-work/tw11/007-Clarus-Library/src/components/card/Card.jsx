@@ -4,9 +4,10 @@ const Card = ({ input, type }) => {
   const [cards, setCards] = useState([]);
 
   const getBooks = async () => {
-    const BASE_URL = `https://www.googleapis.com/react/v1/volumes?q=still&printType=books&key=AIzaSyCvTpnIzXtadNKxNDhwpspdEa8l1rcidt4`;
     try {
-      const { data } = await axios.get(BASE_URL);
+      const { data } = await axios.get(
+        `https://www.googleapis.com/books/v1/volumes?q=${input}&printType=${type}&key=AIzaSyCvTpnIzXtadNKxNDhwpspdEa8l1rcidt4`
+      );
       setCards(data.items);
     } catch (error) {
       console.log(error);
@@ -17,7 +18,7 @@ const Card = ({ input, type }) => {
   useEffect(() => {
     getBooks();
     console.log(cards);
-  }, [input]);
+  }, [input, type]);
   console.log(cards);
 
   return (
