@@ -1,11 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-const Card = () => {
+const Card = ({ input, type }) => {
   const [cards, setCards] = useState([]);
 
   const getBooks = async () => {
-    const BASE_URL =
-      "https://www.googleapis.com/books/v1/volumes?q=still&printType=magazines&key=AIzaSyCvTpnIzXtadNKxNDhwpspdEa8l1rcidt4";
+    const BASE_URL = `https://www.googleapis.com/react/v1/volumes?q=still&printType=books&key=AIzaSyCvTpnIzXtadNKxNDhwpspdEa8l1rcidt4`;
     try {
       const { data } = await axios.get(BASE_URL);
       setCards(data.items);
@@ -18,7 +17,7 @@ const Card = () => {
   useEffect(() => {
     getBooks();
     console.log(cards);
-  }, []);
+  }, [input]);
   console.log(cards);
 
   return (
