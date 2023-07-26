@@ -6,7 +6,9 @@ import { FooterBtn, FooterContainer } from "./Footer.style";
 const Footer = () => {
   const { myTheme, setMyTheme } = useThemeContext();
 
-  const handleClick = () => {};
+  const handleClick = () => {
+setMyTheme((prev)=> prev ==="light" ?  "dark": "light" )
+  };
 
   return (
     <FooterContainer>
