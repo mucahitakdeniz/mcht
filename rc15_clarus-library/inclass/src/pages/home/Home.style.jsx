@@ -17,3 +17,4 @@ export const HomeImg = styled.div`
 `;
 
 export const CardContainer = styled(Flex)``;
+export const Option = styled``;
