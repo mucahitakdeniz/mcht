@@ -1,3 +1,4 @@
+// Home Style
 import styled from "styled-components";
 import Flex from "../../styles/Flex";
 
@@ -5,7 +6,7 @@ export const HomeContainer = styled(Flex)`
   flex-direction: column;
 `;
 
-export const HomeImg = styled.div`
+export const HomeImage = styled.div`
   width: 100%;
   text-align: center;
   margin: 2rem;
@@ -17,4 +18,3 @@ export const HomeImg = styled.div`
 `;
 
 export const CardContainer = styled(Flex)``;
-export const Option = styled``;

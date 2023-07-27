@@ -47,9 +47,6 @@ export const SearchInput = styled.input`
     width: 100%;
     border-radius: 5px;
   }
-  :hover {
-    background-color: ${({ theme }) => theme.colors.navbarBgColor};
-  }
 `;
 
 export const SelectBox = styled.select``;
