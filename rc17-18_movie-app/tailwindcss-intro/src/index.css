@@ -1,0 +1,4 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* yapıştırdığımız @tailwind base; @tailwind components; @tailwind utilities; Kodları Tailwind içerisindeki base component ve utilities classlarını kullanabileceğimizi gösteriyor.*/
