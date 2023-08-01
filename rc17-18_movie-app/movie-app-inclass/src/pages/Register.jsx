@@ -32,7 +32,10 @@ const Register = () => {
               type="text"
               placeholder=" "
               required
+<<<<<<< HEAD
               onChange={(e) => setName(e.target.value)}
+=======
+>>>>>>> 9898a88abd112926860af26064910660e77326a2
             />
             <label htmlFor="floating_text">First Name</label>
           </div>
@@ -43,7 +46,10 @@ const Register = () => {
               type="text"
               placeholder=" "
               required
+<<<<<<< HEAD
               onChange={(e) => setLastName(e.target.value)}
+=======
+>>>>>>> 9898a88abd112926860af26064910660e77326a2
             />
             <label htmlFor="floating_text">Last Name</label>
           </div>
@@ -54,7 +60,10 @@ const Register = () => {
               type="email"
               placeholder=" "
               required
+<<<<<<< HEAD
               onChange={(e) => setEmail(e.target.value)}
+=======
+>>>>>>> 9898a88abd112926860af26064910660e77326a2
             />
             <label htmlFor="floating_email">Email</label>
           </div>
@@ -65,7 +74,10 @@ const Register = () => {
               type="password"
               placeholder=" "
               required
+<<<<<<< HEAD
               onChange={(e) => setPassword(e.target.value)}
+=======
+>>>>>>> 9898a88abd112926860af26064910660e77326a2
             />
             <label htmlFor="floating_password">Password</label>
           </div>
