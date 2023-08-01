@@ -7,11 +7,12 @@ const Register = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, signUpProvider } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createUser(email, password);
+    const displayName = `${name} ${lastName}`;
+    createUser(email, password, displayName);
   };
   return (
     <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
@@ -32,10 +33,7 @@ const Register = () => {
               type="text"
               placeholder=" "
               required
-<<<<<<< HEAD
               onChange={(e) => setName(e.target.value)}
-=======
->>>>>>> 9898a88abd112926860af26064910660e77326a2
             />
             <label htmlFor="floating_text">First Name</label>
           </div>
@@ -46,10 +44,7 @@ const Register = () => {
               type="text"
               placeholder=" "
               required
-<<<<<<< HEAD
               onChange={(e) => setLastName(e.target.value)}
-=======
->>>>>>> 9898a88abd112926860af26064910660e77326a2
             />
             <label htmlFor="floating_text">Last Name</label>
           </div>
@@ -60,10 +55,7 @@ const Register = () => {
               type="email"
               placeholder=" "
               required
-<<<<<<< HEAD
               onChange={(e) => setEmail(e.target.value)}
-=======
->>>>>>> 9898a88abd112926860af26064910660e77326a2
             />
             <label htmlFor="floating_email">Email</label>
           </div>
@@ -74,10 +66,7 @@ const Register = () => {
               type="password"
               placeholder=" "
               required
-<<<<<<< HEAD
               onChange={(e) => setPassword(e.target.value)}
-=======
->>>>>>> 9898a88abd112926860af26064910660e77326a2
             />
             <label htmlFor="floating_password">Password</label>
           </div>
@@ -87,6 +76,7 @@ const Register = () => {
           <button
             type="button"
             className="btn-danger flex justify-between items-center"
+            onClick={() => signUpProvider()}
           >
             Continue with Google
             <GoogleIcon color="currentColor" />
