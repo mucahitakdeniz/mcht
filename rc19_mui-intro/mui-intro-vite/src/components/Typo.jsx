@@ -1,11 +1,11 @@
 // import { Typography,Button } from "@mui/material"
 
-import Typography from "@mui/material/Typography"
+import Typography from "@mui/material/Typography";
 //? Performans acisindan daha mantikli
-import Button from "@mui/material/Button"
-import Box from "@mui/material/Box"
-import Container from "@mui/material/Container"
-import Stack from "@mui/material/Stack"
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
 
 const Typo = () => {
   return (
@@ -40,6 +40,16 @@ const Typo = () => {
         >
           Button Text
         </Typography>
+
+        <Typography variant="h2" mt={2} color={"koyuMor.light"}>
+          Button Text
+        </Typography>
+        <Typography variant="h2" mt={2} color={"koyuMor.main"}>
+          Button Text
+        </Typography>
+        <Typography variant="h2" mt={2} color={"koyuMor.dark"}>
+          Button Text
+        </Typography>
       </Box>
 
       <Stack
@@ -55,7 +65,7 @@ const Typo = () => {
         <Button variant="contained" color="secondary">
           Click
         </Button>
-        <Button variant="contained" color="success">
+        <Button variant="contained" color="koyuMor">
           Click
         </Button>
         <Button variant="contained" color="warning">
@@ -80,7 +90,7 @@ const Typo = () => {
         </Button>
       </Stack>
     </Container>
-  )
-}
+  );
+};
 
-export default Typo
+export default Typo;
