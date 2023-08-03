@@ -117,7 +117,6 @@ body {
     transform: rotate(360deg);
   }
 }
-<<<<<<< HEAD
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -126,5 +125,3 @@ input:-webkit-autofill:focus input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 0px #28292d inset !important;
   transition: background-color 5000s ease-in-out 0s !important;
 }
-=======
->>>>>>> 9898a88abd112926860af26064910660e77326a2
