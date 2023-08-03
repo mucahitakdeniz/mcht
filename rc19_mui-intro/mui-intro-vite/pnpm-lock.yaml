@@ -14,9 +14,12 @@ dependencies:
   '@fontsource/roboto':
     specifier: ^5.0.7
     version: 5.0.7
+<<<<<<< HEAD
   '@mui/icons-material':
     specifier: ^5.14.3
     version: 5.14.3(@mui/material@5.14.3)(@types/react@18.2.15)(react@18.2.0)
+=======
+>>>>>>> 7054139dce0712f6846960db255426c515d580c6
   '@mui/material':
     specifier: ^5.14.3
     version: 5.14.3(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)
@@ -724,6 +727,7 @@ packages:
     resolution: {integrity: sha512-QxvrcDqphZoXRjsAmCaQylmWjC/8/qKWwIde1MJMna5YIst3R9O0qhKRPu36/OE2d8AeTbCVjRcRvNqhhW8jyg==}
     dev: false
 
+<<<<<<< HEAD
   /@mui/icons-material@5.14.3(@mui/material@5.14.3)(@types/react@18.2.15)(react@18.2.0):
     resolution: {integrity: sha512-XkxWPhageu1OPUm2LWjo5XqeQ0t2xfGe8EiLkRW9oz2LHMMZmijvCxulhgquUVTF1DnoSh+3KoDLSsoAFtVNVw==}
     engines: {node: '>=12.0.0'}
@@ -741,6 +745,8 @@ packages:
       react: 18.2.0
     dev: false
 
+=======
+>>>>>>> 7054139dce0712f6846960db255426c515d580c6
   /@mui/material@5.14.3(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-dlu4SOcCp9Cy+wkcfZ/ns9ZkP40nr/WPgqxX0HmrE0o+dkE1ropY9BbHsLrTlYJCko8yzcC8bLghrD4xqZG1og==}
     engines: {node: '>=12.0.0'}
