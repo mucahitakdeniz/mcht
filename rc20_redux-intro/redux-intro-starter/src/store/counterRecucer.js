@@ -1,6 +1,11 @@
 export const INC = "INC";
 export const DEC = "DEC";
 export const CLR = "CLR";
+export const increment = () => {
+  return { type: INC };
+};
+export const decrement = () => ({ type: DEC });
+export const clear = () => ({ type: CLR });
 
 const initialState = {
   count: 0,
