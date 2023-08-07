@@ -1,3 +1,4 @@
+import { CLR, DEC, INC } from "../../store/counterRecucer";
 import "./Counter.css";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -12,19 +13,19 @@ const Counter = () => {
       <div>
         <button
           className="counter-button positive"
-          onClick={() => dispatch({ type: "INC" })}
+          onClick={() => dispatch({ type: INC })}
         >
           increase
         </button>
         <button
           className="counter-button zero"
-          onClick={() => dispatch({ type: "CLR" })}
+          onClick={() => dispatch({ type: CLR })}
         >
           reset
         </button>
         <button
           className="counter-button negative"
-          onClick={() => dispatch({ type: "DEC" })}
+          onClick={() => dispatch({ type: DEC })}
         >
           decrease
         </button>
