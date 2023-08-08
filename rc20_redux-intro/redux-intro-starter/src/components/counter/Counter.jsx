@@ -1,11 +1,24 @@
-import { clear, decrement, increment } from "../../store/counterRecucer";
-import "./Counter.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux"
+import "./Counter.css"
+import {
+  // CLR,
+  // DEC,
+  // INC,
+  clear,
+  decrement,
+  increment,
+} from "../../store/counterReducer"
 
 const Counter = () => {
-  const count = useSelector((state) => state.count);
+  //? Global state'in tüketilmesi
+  // const count = useSelector((state) => state.count)
 
-  const dispatch = useDispatch();
+  //? Rootreducer sonrasi consuming
+  // const count = useSelector((state) => state.counter.count)
+  const {count} = useSelector((state) => state.counter)
+
+  //? useDispatch custom redux hookudur
+  const dispatch = useDispatch()
   return (
     <div className="app">
       <h2 className="counter-header">Counter With Redux</h2>
@@ -27,14 +40,14 @@ const Counter = () => {
         </button>
         <button
           className="counter-button negative"
-          onClick={() => dispatch(decrement())}
           // onClick={() => dispatch({ type: DEC })}
+          onClick={() => dispatch(decrement())}
         >
           decrease
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Counter;
+export default Counter
