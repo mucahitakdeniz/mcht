@@ -32,7 +32,7 @@ export const todoReducer = (state = initialState, { type, payload }) => {
     case TOGGLE_TODO:
       return {
         todoList: state.todoList.map((todo) =>
-          todo.id === payload ? { ...todo, copmleted: !todo.completed } : todo
+          todo.id === payload ? { ...todo, completed: !todo.completed } : todo
         ),
       };
 

@@ -7,6 +7,7 @@ const TodoItem = ({ completed, text, id }) => {
   const dispatch = useDispatch();
   const handleToggle = () => {
     dispatch(toggleTodo(id));
+    console.log("deneme");
   };
 
   const handleDelete = () => {
@@ -28,7 +29,7 @@ const TodoItem = ({ completed, text, id }) => {
             src={okLogo}
             className="ok-logo"
             alt="ok logo"
-            onClick={handleToggle}
+            onClick={() => handleToggle()}
           />
         </span>
         <span>
