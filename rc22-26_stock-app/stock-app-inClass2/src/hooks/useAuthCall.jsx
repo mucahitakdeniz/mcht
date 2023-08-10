@@ -1,84 +1,86 @@
-// import axios from "axios"
-// import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify"
-// import { useNavigate } from "react-router-dom"
-// import { useDispatch } from "react-redux"
-// import { fetchFail, fetchStart, loginSuccess } from "../features/authSlice"
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Avatar from "@mui/material/Avatar";
+import LockIcon from "@mui/icons-material/Lock";
+import image from "../assets/result.svg";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
+import RegisterForm, { registerSchema } from "../components/RegisterForm";
+import { Formik } from "formik";
+import useAuthCall from "../hooks/useAuthCall";
 
-// // //? Bir hook sadece bir react component ve bir custom hook icersinde cagrilabilir. Bir Js fonksiyonu icerisinde hook cagiralamaz.
+const Register = () => {
+  const { register } = useAuthCall();
 
-// export const login = async (userData) => {
-//   const navigate = useNavigate()
-//   const dispatch = useDispatch()
+  return (
+    <Container maxWidth="lg">
+      <Grid
+        container
+        justifyContent="center"
+        direction="row-reverse"
+        rowSpacing={{ sm: 3 }}
+        sx={{
+          height: "100vh",
+          p: 2,
+        }}
+      >
+        <Grid item xs={12}>
+          <Typography variant="h3" color="primary" align="center">
+            STOCK APP
+          </Typography>
+        </Grid>
 
-//   const BASE_URL = "https://10001.fullstack.clarusway.com"
+        <Grid item xs={12} sm={10} md={6}>
+          <Avatar
+            sx={{
+              backgroundColor: "secondary.light",
+              m: "auto",
+              width: 40,
+              height: 40,
+            }}
+          >
+            <LockIcon size="30" />
+          </Avatar>
+          <Typography
+            variant="h4"
+            align="center"
+            mb={2}
+            color="secondary.light"
+          >
+            Register
+          </Typography>
 
-//   dispatch(fetchStart())
-//   try {
-//     const { data } = await axios.post(
-//       `${BASE_URL}/account/auth/login/`,
-//       userData
-//     )
-//     dispatch(loginSuccess(data))
-//     toastSuccessNotify("login islemi basarili")
-//     navigate("/stock")
-//   } catch (error) {
-//     console.log(error)
-//     dispatch(fetchFail())
-//   }
-// }
+          <Formik
+            initialValues={{
+              username: "",
+              first_name: "",
+              last_name: "",
+              email: "",
+              password: "",
+            }}
+            validationSchema={registerSchema}
+            onSubmit={(values, actions) => {
+              register({ ...values, password2: values.password });
+              actions.resetForm();
+              actions.setSubmitting(false);
+            }}
+            component={(props) => <RegisterForm {...props} />}
+          ></Formik>
 
-import React from "react";
-import axios from "axios";
-import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import {
-  fetchFail,
-  fetchStart,
-  loginSuccess,
-  logoutSuccess,
-} from "../features/authSlice";
+          <Box sx={{ textAlign: "center", mt: 2 }}>
+            <Link to="/">Do you have an account?</Link>
+          </Box>
+        </Grid>
 
-const useAuthCall = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const login = async (userData) => {
-    // const BASE_URL = "https://10001.fullstack.clarusway.com"
-
-    console.log(import.meta.env.VITE_API_KEY);
-
-    dispatch(fetchStart());
-    try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/account/auth/login/`,
-        userData
-      );
-      dispatch(loginSuccess(data));
-      toastSuccessNotify("login islemi basarili");
-      navigate("/stock");
-    } catch (error) {
-      console.log(error.message);
-      dispatch(fetchFail());
-      toastErrorNotify(error.response.data.non_field_errors[0]);
-    }
-  };
-
-  const logout = async () => {
-    dispatch(fetchStart());
-    try {
-      await axios.post(`${import.meta.env.VITE_BASE_URL}/account/auth/logout/`);
-      dispatch(logoutSuccess());
-      toastSuccessNotify("logout islemi basarili");
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-      dispatch(fetchFail());
-      toastErrorNotify("Logout islemi basarisiz");
-    }
-  };
-
-  return { login, logout };
+        <Grid item xs={0} sm={7} md={6}>
+          <Container>
+            <img src={image} alt="" />
+          </Container>
+        </Grid>
+      </Grid>
+    </Container>
+  );
 };
 
-export default useAuthCall;
+export default Register;
