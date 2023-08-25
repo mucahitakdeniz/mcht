@@ -20,10 +20,10 @@ const Card = ({ input, type }) => {
     getBooks();
     console.log(cards);
   }, [input, type]);
-  useEffect(() => {
-    getBooks();
-    console.log(cards);
-  }, [type]);
+  // useEffect(() => {
+  //   getBooks();
+  //   console.log(cards);
+  // }, [type]);
   const img =
   console.log(cards);
 
