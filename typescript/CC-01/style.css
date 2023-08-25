@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url("./numbers.jpeg");
+}
+#container {
+  display: flex;
+  width: 30rem;
+  height: 2rem;
+  margin: 20rem;
+}
+#tcInput {
+  width: 300px;
+border: 5px solid red;}
